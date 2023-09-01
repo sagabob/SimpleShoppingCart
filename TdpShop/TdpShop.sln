@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{2279818A-C7BF-434D-BC1F-FEABF7398237}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{602356D1-F66B-450B-A55C-8CB1D0CB6399}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3117B19D-1DDB-430F-AA8E-4EF0B2E411FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpShop.Services.CouponApi", "TdpShop.Services.CouponApi\TdpShop.Services.CouponApi.csproj", "{032BD536-6D5A-42F3-BDA5-81031D19FA78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2279818A-C7BF-434D-BC1F-FEABF7398237} = {FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}
+		{602356D1-F66B-450B-A55C-8CB1D0CB6399} = {FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}
+		{3117B19D-1DDB-430F-AA8E-4EF0B2E411FA} = {FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}
+		{032BD536-6D5A-42F3-BDA5-81031D19FA78} = {3117B19D-1DDB-430F-AA8E-4EF0B2E411FA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74F24E65-8563-426B-A911-840FD95CC6E5}
+	EndGlobalSection
+EndGlobal
