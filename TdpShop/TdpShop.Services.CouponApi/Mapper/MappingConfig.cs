@@ -4,15 +4,10 @@ using TdpShop.Services.CouponApi.Models.Dto;
 
 namespace TdpShop.Services.CouponApi.Mapper;
 
-public class MappingConfig
+public class MappingConfig : Profile
 {
-    public static MapperConfiguration RegisterMaps()
+    public MappingConfig()
     {
-        var mappingConfig = new MapperConfiguration(config =>
-        {
-            config.CreateMap<CouponDto, Coupon>();
-            config.CreateMap<Coupon, CouponDto>();
-        });
-        return mappingConfig;
+        CreateMap<CouponDto, Coupon>().ReverseMap();
     }
 }
