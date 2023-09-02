@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using TdpShop.Services.CouponApi.Models;
 using TdpShop.Services.CouponApi.Models.Dto;
 using TdpShop.Services.CouponApi.Services;
@@ -24,6 +25,7 @@ public class CouponApiController : ControllerBase
     [Route("all")]
     public async Task<IActionResult> GetAllCoupons()
     {
+        Log.Information("Get all coupons");
         var allCoupons = await _couponServices.GetAllCoupons();
         return Ok(_mapper.Map<List<CouponDto>>(allCoupons));
     }

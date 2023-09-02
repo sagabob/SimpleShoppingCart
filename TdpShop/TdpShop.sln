@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{31
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdpShop.Services.CouponApi", "src\TdpShop.Services.CouponApi\TdpShop.Services.CouponApi.csproj", "{032BD536-6D5A-42F3-BDA5-81031D19FA78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdpShop.Web", "src\TdpShop.Web\TdpShop.Web.csproj", "{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032BD536-6D5A-42F3-BDA5-81031D19FA78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 		{602356D1-F66B-450B-A55C-8CB1D0CB6399} = {FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}
 		{3117B19D-1DDB-430F-AA8E-4EF0B2E411FA} = {FC2F988F-ADFA-4AC4-AB0B-7D0800CBCC75}
 		{032BD536-6D5A-42F3-BDA5-81031D19FA78} = {3117B19D-1DDB-430F-AA8E-4EF0B2E411FA}
+		{A110E8D3-0853-4AC9-93D9-0AEF4DDBD21E} = {2279818A-C7BF-434D-BC1F-FEABF7398237}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74F24E65-8563-426B-A911-840FD95CC6E5}

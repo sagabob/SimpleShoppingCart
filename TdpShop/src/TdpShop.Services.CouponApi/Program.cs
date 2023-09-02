@@ -1,10 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using TdpShop.Services.CouponApi.Data;
+using TdpShop.Services.CouponApi.Middleware;
 using TdpShop.Services.CouponApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Host.UseSerilog(Log.Logger);
 // Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(option =>
@@ -23,12 +30,15 @@ builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title
 
 var app = builder.Build();
 
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Coupon Api"); });
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
