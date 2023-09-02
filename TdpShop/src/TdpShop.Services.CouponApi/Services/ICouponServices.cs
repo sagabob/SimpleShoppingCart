@@ -11,4 +11,8 @@ public interface ICouponServices
     Task<Coupon?> GetByCode(string code);
 
     Task AddCoupon(Coupon coupon);
+
+    Task UpdateCoupon(Coupon coupon);
+
+    Task DeleteCoupon(Coupon coupon);
 }
