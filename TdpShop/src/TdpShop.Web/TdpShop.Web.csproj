@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Services\Core\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>
