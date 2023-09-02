@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using TdpShop.Services.CouponApi;
 using TdpShop.Services.CouponApi.Data;
 using TdpShop.Services.CouponApi.Services;
 
