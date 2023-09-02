@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TdpShop.Services.CouponApi.Models.Dto;
 using TdpShop.Services.CouponApi.Services;
@@ -19,9 +20,35 @@ public class CouponApiController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get()
+    [Route("all")]
+    public async Task<IActionResult> GetAllCoupons()
     {
         var allCoupons = await _couponServices.GetAllCoupons();
         return Ok(_mapper.Map<List<CouponDto>>(allCoupons));
+    }
+
+
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [Route("id/{id:int}")]
+    public async Task<IActionResult> GetCouponById(int id)
+    {
+        var coupon = await _couponServices.GetById(id);
+
+        if (coupon == null)
+            return NotFound();
+
+        return Ok(_mapper.Map<CouponDto>(coupon));
+    }
+
+    [HttpGet]
+    [Route("code/{code}")]
+    public async Task<IActionResult> GetCouponByCode(string code)
+    {
+        var coupon = await _couponServices.GetByCode(code);
+
+        if (coupon == null)
+            return NotFound();
+
+        return Ok(_mapper.Map<CouponDto>(coupon));
     }
 }
