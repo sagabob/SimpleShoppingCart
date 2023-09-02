@@ -34,4 +34,10 @@ public class CouponServices : ICouponServices
         _db.Coupons.Add(coupon);
         await _db.SaveChangesAsync();
     }
+
+    public async Task UpdateCoupon(Coupon coupon)
+    {
+        _db.Coupons.Update(coupon);
+        await _db.SaveChangesAsync();
+    }
 }
