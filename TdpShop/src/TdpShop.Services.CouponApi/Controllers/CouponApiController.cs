@@ -56,7 +56,7 @@ public class CouponApiController : ControllerBase
 
 
     [HttpPost]
-    public async Task<IActionResult> PostTodoItem([FromBody] CouponDto couponDto)
+    public async Task<IActionResult> Post([FromBody] CouponDto couponDto)
     {
         var inputCoupon = _mapper.Map<Coupon>(couponDto);
         await _couponServices.AddCoupon(inputCoupon);
@@ -68,7 +68,7 @@ public class CouponApiController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> PutTodoItem([FromBody] CouponDto couponDto)
+    public async Task<IActionResult> Put([FromBody] CouponDto couponDto)
     {
         var coupon = await _couponServices.GetById(couponDto.CouponId);
 
@@ -80,5 +80,18 @@ public class CouponApiController : ControllerBase
         await _couponServices.UpdateCoupon(inputCoupon);
 
         return NoContent();
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var coupon = await _couponServices.GetById(id);
+
+        if (coupon == null)
+            return NotFound();
+
+        await _couponServices.DeleteCoupon(coupon);
+
+        return Ok(_mapper.Map<CouponDto>(coupon));
     }
 }
