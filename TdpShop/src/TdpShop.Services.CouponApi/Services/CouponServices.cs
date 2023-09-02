@@ -14,18 +14,24 @@ public class CouponServices : ICouponServices
         _db = db;
     }
 
-    public async Task<List<Coupon?>> GetAllCoupons()
+    public async Task<List<Coupon>> GetAllCoupons()
     {
         return await _db.Coupons.ToListAsync();
     }
 
-    public async Task<Coupon?> GetById(int id)
+    public async Task<Coupon?> GetById(Guid id)
     {
-        return await _db.Coupons.Where(x => x != null && x.CouponId == id).FirstOrDefaultAsync();
+        return await _db.Coupons.Where(x => x!.CouponId == id).FirstOrDefaultAsync();
     }
 
     public async Task<Coupon?> GetByCode(string code)
     {
-        return await _db.Coupons.Where(x => x != null && x.CouponCode == code).FirstOrDefaultAsync();
+        return await _db.Coupons.Where(x => x!.CouponCode == code).FirstOrDefaultAsync();
+    }
+
+    public async Task AddCoupon(Coupon coupon)
+    {
+        _db.Coupons.Add(coupon);
+        await _db.SaveChangesAsync();
     }
 }
