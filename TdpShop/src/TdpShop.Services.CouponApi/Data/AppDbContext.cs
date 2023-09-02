@@ -9,11 +9,10 @@ public class AppDbContext : DbContext
     {
     }
 
-    public required DbSet<Coupon> Coupons { get; set; }
+    public required DbSet<Coupon?> Coupons { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
     }
 }

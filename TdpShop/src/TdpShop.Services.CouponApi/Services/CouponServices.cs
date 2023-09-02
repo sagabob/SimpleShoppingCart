@@ -1,24 +1,31 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TdpShop.Services.CouponApi.Data;
-using TdpShop.Services.CouponApi.Models.Dto;
+using TdpShop.Services.CouponApi.Models;
 
 namespace TdpShop.Services.CouponApi.Services;
 
-public class CouponServices: ICouponServices
+public class CouponServices : ICouponServices
 {
     private readonly AppDbContext _db;
-    private readonly IMapper _mapper;
 
-    public CouponServices(AppDbContext db, IMapper mapper)
+
+    public CouponServices(AppDbContext db)
     {
         _db = db;
-        _mapper = mapper;
     }
 
-    public async Task<List<CouponDto>> GetAllCouponDtos()
+    public async Task<List<Coupon?>> GetAllCoupons()
     {
-        var allCoupons = await _db.Coupons.ToListAsync();
-        return _mapper.Map<List<CouponDto>>(allCoupons);
+        return await _db.Coupons.ToListAsync();
+    }
+
+    public async Task<Coupon?> GetById(int id)
+    {
+        return await _db.Coupons.Where(x => x != null && x.CouponId == id).FirstOrDefaultAsync();
+    }
+
+    public async Task<Coupon?> GetByCode(string code)
+    {
+        return await _db.Coupons.Where(x => x != null && x.CouponCode == code).FirstOrDefaultAsync();
     }
 }
