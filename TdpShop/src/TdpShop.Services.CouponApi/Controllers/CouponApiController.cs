@@ -8,7 +8,7 @@ using TdpShop.Services.CouponApi.Services;
 
 namespace TdpShop.Services.CouponApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/coupon")]
 [ApiController]
 public class CouponApiController : ControllerBase
 {
