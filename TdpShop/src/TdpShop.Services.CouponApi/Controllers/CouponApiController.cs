@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TdpShop.Services.CouponApi.Models;
 using TdpShop.Services.CouponApi.Models.Dto;
 using TdpShop.Services.CouponApi.Services;
 
@@ -29,8 +30,8 @@ public class CouponApiController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    [Route("id/{id:int}")]
-    public async Task<IActionResult> GetCouponById(int id)
+    [Route("id/{id}")]
+    public async Task<IActionResult> GetCouponById(Guid id)
     {
         var coupon = await _couponServices.GetById(id);
 
@@ -51,5 +52,18 @@ public class CouponApiController : ControllerBase
             return NotFound();
 
         return Ok(_mapper.Map<CouponDto>(coupon));
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> PostTodoItem(CouponDto couponDto)
+    {
+        var inputCoupon = _mapper.Map<Coupon>(couponDto);
+        await _couponServices.AddCoupon(inputCoupon);
+
+        return CreatedAtAction(
+            nameof(GetCouponById),
+            new { id = inputCoupon.CouponId },
+            _mapper.Map<CouponDto>(inputCoupon));
     }
 }

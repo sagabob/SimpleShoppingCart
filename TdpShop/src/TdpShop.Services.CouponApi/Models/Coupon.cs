@@ -4,7 +4,7 @@ namespace TdpShop.Services.CouponApi.Models;
 
 public class Coupon
 {
-    [Key] public required int CouponId { get; set; }
+    [Key] public Guid CouponId { get; set; }
 
     public required string CouponCode { get; set; }
 
