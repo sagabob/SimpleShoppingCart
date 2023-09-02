@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using TdpShop.Services.CouponApi;
 using TdpShop.Services.CouponApi.Data;
-using TdpShop.Services.CouponApi.Mapper;
+using TdpShop.Services.CouponApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 
 
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<ICouponServices, CouponServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
