@@ -27,7 +27,7 @@ public class CouponApiController : ControllerBase
         return Ok(_mapper.Map<List<CouponDto>>(allCoupons));
     }
 
-
+    [HttpGet]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [Route("id/{id:int}")]
     public async Task<IActionResult> GetCouponById(int id)
@@ -42,6 +42,7 @@ public class CouponApiController : ControllerBase
 
     [HttpGet]
     [Route("code/{code}")]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetCouponByCode(string code)
     {
         var coupon = await _couponServices.GetByCode(code);
