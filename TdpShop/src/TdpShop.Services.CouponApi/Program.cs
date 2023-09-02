@@ -1,6 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using TdpShop.Services.CouponApi;
+using TdpShop.Services.CouponApi.Data;
+using TdpShop.Services.CouponApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<AppDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<ICouponServices, CouponServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
