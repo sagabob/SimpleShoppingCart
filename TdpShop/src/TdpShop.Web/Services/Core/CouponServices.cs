@@ -33,7 +33,7 @@ public class CouponServices : ICouponServices
 
     public async Task<CouponDto> GetCouponByCodeAsync(string couponCode)
     {
-        var couponResponse = await _client.GetAsync($"/api/coupon/{couponCode}");
+        var couponResponse = await _client.GetAsync($"/api/coupon/code/{couponCode}");
 
         var coupon = await couponResponse.ReadContentAs<CouponDto>();
 
@@ -42,7 +42,7 @@ public class CouponServices : ICouponServices
 
     public async Task<CouponDto> GetCouponByIdAsync(Guid couponId)
     {
-        var couponResponse = await _client.GetAsync($"/api/coupon/{couponId}");
+        var couponResponse = await _client.GetAsync($"/api/coupon/id/{couponId}");
 
         var coupon = await couponResponse.ReadContentAs<CouponDto>();
 

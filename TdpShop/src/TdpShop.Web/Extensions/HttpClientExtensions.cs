@@ -34,6 +34,6 @@ public static class HttpClientExtensions
         return JsonSerializer.Deserialize<T>(dataAsString,
                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ??
                throw new ApplicationException("Fail to parse the response");
-        ;
+        
     }
 }

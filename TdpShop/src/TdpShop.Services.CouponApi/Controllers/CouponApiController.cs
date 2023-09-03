@@ -83,7 +83,7 @@ public class CouponApiController : ControllerBase
 
         return NoContent();
     }
-
+    [Route("{id:guid}")]
     [HttpDelete]
     public async Task<IActionResult> Delete(Guid id)
     {
